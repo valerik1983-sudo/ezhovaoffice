@@ -283,6 +283,12 @@ app.post("/webhook/tbank")(tbank_webhook_handler)
 async def ping():
     return {"status": "ok", "message": "Server is alive"}
 
+@app.api_route("/{path:path}", methods=["GET", "POST"])
+async def catch_all(request: Request, path: str):
+    print(f"🔍 Получен запрос на путь: /{path}")
+    print(f"📨 Метод: {request.method}")
+    return {"status": "ok", "path": path}
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 3001))
     uvicorn.run(
