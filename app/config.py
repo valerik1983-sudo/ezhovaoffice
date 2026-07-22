@@ -30,4 +30,4 @@ TBANK_WEBHOOK_URL = f"{BASE_URL}{TBANK_WEBHOOK_PATH}"
 
 # === База данных ===
 DATA_DIR = os.getenv("DATA_DIR", "/app/data")
-DATABASE_PATH = os.getenv("DATABASE_PATH", "ezhova.db")
+DATABASE_PATH = os.path.join(DATA_DIR, "ezhova.db")
