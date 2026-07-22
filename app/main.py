@@ -278,6 +278,7 @@ app = FastAPI(lifespan=lifespan, title="Payment Bot for Bothost")
 
 app.post("/webhook/telegram")(telegram_webhook_handler)
 app.post("/webhook/tbank")(tbank_webhook_handler)
+app.post("/bot/webhook/telegram")(telegram_webhook_handler)
 
 @app.get("/ping")
 async def ping():
